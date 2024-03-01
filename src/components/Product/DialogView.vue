@@ -187,7 +187,7 @@ const getProductById = async (id) => {
     }
 }
 const empty = () => {
-    imageFile.value = null;
+    imageUrl.value = null;
     id = null;
     props.idEdit = null
 }

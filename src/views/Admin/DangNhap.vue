@@ -44,11 +44,6 @@ const terms = ref('')
 
 
 
-
-
-
-
-
 // import { useForm, useField } from 'vee-validate';
 // // import * as yup from 'yup';
 

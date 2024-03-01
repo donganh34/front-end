@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col cols="3">
-          <v-text-field
+          <v-text-field v-model="search" @keyup.enter="searchData()"
             style="background-color: white"
             density="compact"
             variant="outlined"
@@ -30,32 +30,32 @@
             <v-table density="compact">
               <thead>
                 <tr>
-                  <th class="text-left">Avatar</th>
-                  <th class="text-left">Tên người dùng</th>
-                    <th class="text-left">Email</th>
-                  <th class="text-left">Ngày sinh</th>
-                  <th class="text-left">Số điện thoại</th>
-                  <th class="text-center">Acction</th>
+                  <th class="text-left">AVATAR</th>
+                  <th class="text-left">TÊN NGƯỜI DÙNG</th>
+                    <th class="text-left">EMAIL</th>
+                  <th class="text-left">NGÀY SINH </th>
+                  <th class="text-left">SỐ ĐIỆN THOẠI</th>
+                  <th class="text-center">HÀNH ĐỘNG</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="i in users" :key="i">
                   <td>
-                    <v-img
-                      width="60"
+                    <v-img 
+                      style="width: 36px; height: 50px; radius: 2px"
                       height="50"
                       :src="i.imageUrl"
                     ></v-img>
                   </td>
-                  <td>{{ i.name }}</td>
-                    <td>{{i.email}}</td>
-                  <td>{{i.birthday}}</td>
-                  <td>{{i.phonenumber}}</td>                 
+                  <td style="font-weight: 600">{{ i.name }}</td>
+                    <td style="width:323px; height:58px;padding:18px, 20px, 18px, 20px;gap:8px">{{i.email}}</td>
+                  <td >{{i.birthday}}</td>
+                  <td layout="width:96px; height:22px">{{i.phonenumber}}</td>                 
                   <td class="text-center">
                     <v-btn variant="text" @click="idEdit=i.id;dialog=true"
-                      ><v-icon >mdi mdi-pencil</v-icon></v-btn
+                      ><v-icon layout="width:24px;height:24px">mdi mdi-pencil</v-icon></v-btn
                     >
-                     <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true"><v-icon style="opacity: 0.5">
+                     <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true"><v-icon style="width:24px;height:24px">
                       mdi mdi-trash-can-outline</v-icon></v-btn>
                   </td>
                 </tr>
@@ -76,7 +76,7 @@
                 </v-row>
               </v-col>
               <v-col cols="4" class="text-right">
-                <v-pagination
+                <v-pagination v-model="page"
                   variant="text"
                   density="compact"
                   :length="10"
@@ -94,13 +94,15 @@
 
 <script setup>
 import { useUserStore } from "@/store/user/userStore";
-import { onMounted, ref } from "vue";
+import { onMounted, ref, watch } from "vue";
 import DeleteVue from '@/components/Confirm/IndexView.vue'
 import DialogVue from "../../../components/User/DialogView.vue";
 const dialog=ref(false)
 const dialogDelete = ref(false)
 const idDelete = ref(null) 
 const idEdit=ref(null)
+const search= ref(null)
+const page = ref(1)
 
 import {useUser} from './user'
 import { userServiceApi} from"@/service/user.api";
@@ -108,8 +110,13 @@ import { showSuccessNotification} from"@/common/helper/helpers";
 
 const {users, query, getAll} = useUser()
   onMounted(async =>{
+    query.keyword=""
+    query.page=1
+    query.limit=5
     getData()
   })
+
+
 
 
 const getData = async()=>{
@@ -130,7 +137,14 @@ const DeleteUserById=async(id)=>{
     alert(res.message)
   }
 }
-
+const searchData=async()=>{
+  query.keyword=search.value
+  getData()
+}
+watch(page,(newvalue)=>{
+  query.page= newvalue
+  getData()
+})
 
 </script>
 

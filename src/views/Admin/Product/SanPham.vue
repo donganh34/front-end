@@ -7,6 +7,7 @@
             style="background-color: white"
             density="compact"
             variant="outlined"
+            v-model="key"
             label="Tìm kiếm"
             append-inner-icon="mdi mdi-magnify"
             single-line
@@ -30,34 +31,32 @@
             <v-table density="compact">
               <thead>
                 <tr>
-                  <th class="text-left">Tên sản phẩm</th>
-                  <th class="text-left">Giá</th>
-                  <th class="text-left">Số lượng</th>
-                  <th class="text-left">Mô tả</th>
-                  <th class="text-left">Ảnh</th>
-                  <th class="text-center">Acction</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">TÊN SẢN PHẨM</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">GIÁ</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">SỐ LƯỢNG</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">MÔ TẢ</th>
+                  <th class="text-center" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">ẢNH</th>
+                  <th class="text-center" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">HÀNH ĐỘNG</th>
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="i in products" :key="i">
-                  <td>{{ i.name }}</td>
-                  <td>{{i.price }}</td>
-                  <td>{{i.quantity}}</td>
-                  <td style="width: 250px" class="v-text-truncate">
+                <tr v-for="i in search" :key="i">
+                  <td style="font-weight: 600;font-family:Public Sans;sans-serif;font-size:15px;">{{ i.name }}</td>
+                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">${{i.price }}</td>
+                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">{{i.quantity}}</td>
+                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">
                     {{i.description}}
-                  </td>
+</td>
                   <td>
-                    <v-img
-                      width="60"
-                      height="50"
+                    <v-img style=" width=36px; height=36px;radius=2px"
                       :src="i.imageUrl"
                     ></v-img>
                   </td>
                   <td class="text-center">
                     <v-btn variant="text" @click="idEdit=i.id;dialog=true"
-                      ><v-icon>mdi mdi-pencil</v-icon></v-btn
+                      ><v-icon style="width:6px;height:4px;top:3px;left:9px;border:1.75px">mdi mdi-square-edit-outline</v-icon></v-btn
                     >
-                    <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true"><v-icon style="opacity: 0.5">
+                    <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true"><v-icon style="width:6px;height:4px;top:3px;left:9px;border:1.75px">
                       mdi mdi-trash-can-outline</v-icon></v-btn>
                   </td>
                 </tr>
@@ -78,7 +77,7 @@
                 </v-row>
               </v-col>
               <v-col cols="4" class="text-right">
-                <v-pagination
+                <v-pagination v-model="page"
                   variant="text"
                   density="compact"
                   :length="10"
@@ -95,19 +94,30 @@
 </template>
 
 <script setup>
-import {ref,onMounted} from 'vue'
+import {ref,onMounted, computed,watch} from 'vue'
 import DeleteVue from '@/components/Confirm/IndexView.vue'
 import DialogVue from "../../../components/Product/DialogView.vue";
 const dialog=ref(false)
 const dialogDelete = ref(false)
 const idDelete = ref(null) 
 const idEdit=ref(null)
+const page = ref(1)
 import {useProduct} from '../Product/Product'
 import { productServiceApi} from"@/service/product.api";
 import { showSuccessNotification} from"@/common/helper/helpers";
 const {products, query, getAll} = useProduct()
   onMounted(async =>{
+     query.keyword=""
+    query.page=1
+    query.limit=5
     getData()
+  })
+
+  const key = ref('')
+
+  const search = computed(() => {
+    const key_word = key.value.toLocaleLowerCase()
+    return products.value.filter((p) => p.name.toLocaleLowerCase().includes(key_word))
   })
 
 
@@ -129,7 +139,10 @@ const DeleteProductById=async(id)=>{
     alert(res.message)
   }
 }
-
+watch(page,(newvalue)=>{
+  query.page= newvalue
+  getData()
+})
 
 
 
