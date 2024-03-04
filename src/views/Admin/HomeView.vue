@@ -138,7 +138,7 @@ export default defineComponent({
             "https://bizweb.dktcdn.net/thumb/1024x1024/100/369/522/products/quan-jean-nu-rach-dep-dkmv-ripped-jeans-streetwear.jpg?v=1616860987837",
           title: "Quần jean nữ. ",
           price: "$13.95",
-          reviews: " 1258 bids, 359 watchers $5.95 for shipping",
+          reviews: " 1258 bids, 359 watchers $5.95 for ship",
         },
         {
           class: "pa-0",
@@ -147,7 +147,7 @@ export default defineComponent({
           title:
             "Váy nữ xinh xắn.",
           price: "$23.25",
-          reviews: " 1258 bids, 359 watchers $5.95 for shipping",
+          reviews: " 1258 bids, 359 watchers $5.95 for ship",
         },
         {
           class: "pa-0",
