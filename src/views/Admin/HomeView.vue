@@ -161,7 +161,7 @@ export default defineComponent({
         {
           class: "pa-0",
           image:
-            "https://golfmax.vn/wp-content/uploads/2022/10/Full-set-thoi-trang-Golf-nu-GM21345-1-1.jpg",
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5jDxy5kYitcY5zdGYSqh3L7QmijSOVv5elA&usqp=CAU",
           title: "Set nữ thời trang",
           price: "$11.68",
           reviews: " Wordwide shifting available Buyers protection possible!",
