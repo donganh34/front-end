@@ -44,9 +44,7 @@
                   <td style="font-weight: 600;font-family:Public Sans;sans-serif;font-size:15px;">{{ i.name }}</td>
                   <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">${{i.price }}</td>
                   <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">{{i.quantity}}</td>
-                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">
-                    {{i.description}}
-</td>
+                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">{{i.description}}</td>
                   <td>
                     <v-img style=" width=36px; height=36px;radius=2px"
                       :src="i.imageUrl"
@@ -69,7 +67,7 @@
                   <v-col cols="2">
                     <v-select
                       density="compact"
-                      :items="['10', '20', '25', '30', 'All']"
+                      :items="['5', '10', '15', '20', 'All']"
                       variant="outlined"
                     ></v-select>
                   </v-col>
@@ -77,8 +75,9 @@
                 </v-row>
               </v-col>
               <v-col cols="4" class="text-right">
-                <v-pagination v-model="page"
+                <v-pagination v-model="page" active-color="#0F60FF"
                   variant="text"
+                  
                   density="compact"
                   :length="10"
                 ></v-pagination>
@@ -88,7 +87,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <DialogVue v-model="dialog" :idEdit="idEdit" />
+    <DialogVue v-model="dialog" @close="close()" :idEdit="idEdit" />
     <DeleteVue v-model="dialogDelete" :idDelete="idDelete" @delete="DeleteProductById" />
   </div>
 </template>
@@ -143,7 +142,11 @@ watch(page,(newvalue)=>{
   query.page= newvalue
   getData()
 })
-
+const close=()=>
+{
+  dialog.value=false
+  dialogDelete.value= false
+}
 
 
 </script>

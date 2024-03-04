@@ -14,7 +14,7 @@
       <v-row>
         <v-col cols="12" sm="3" v-for="(product, i) in products" :key="i">
           <v-card height="auto" align="center" variant="flat" hover>
-            <v-img
+            <v-img 
               :src="product.image"
               style="width: 100%"
               height="200"
@@ -31,14 +31,17 @@
               <v-spacer></v-spacer>
               <v-row>
                 <v-col cols="5">
-                  <v-icon color="yellow" size="small">mdi mdi-star</v-icon>
-                  <v-icon color="yellow" size="small">mdi mdi-star</v-icon>
-                  <v-icon color="yellow" size="small">mdi mdi-star</v-icon>
-                  <v-icon color="yellow" size="small">mdi mdi-star</v-icon>
-                  <v-icon color="yellow" size="small">mdi mdi-star-half</v-icon>
+                  <v-icon color="#FB8200"  size="small">mdi mdi-star</v-icon>
+                  <v-icon color="#FB8200"  size="small">mdi mdi-star</v-icon>
+                  <v-icon color="#FB8200" size="small">mdi mdi-star</v-icon>
+                  <v-icon color="#FB8200"  size="small">mdi mdi-star</v-icon>
+                  <v-icon color="#FB8200"  size="small">mdi mdi-star-half</v-icon>
+                  <v-icon color="yellow" v-if="product.feedback==5" size="x-small">mdi mdi-star</v-icon>
+                  <v-icon color="yellow" v-if="product.feedback<5 && product.feedback>4" size="x-small">mdi mdi-star-half</v-icon>
+                  <span style="font-size: 12px;">{{ product.feedback }}</span>
                 </v-col>
-                <v-col cols="3"></v-col>
-                <v-col cols="3">
+              
+                <v-col class="text-right" cols="6">
                   <v-btn
                     prepend-icon="mdi mdi-heart-outline"
                     class="text-capitalize mb-2"
@@ -79,107 +82,107 @@ export default defineComponent({
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://dosi-in.com/file/detailed/386/dosiin-somehow-quan-jean-nam-inf-infinity-symbol-chat-denim-co-gian-day-dan-qj-somehow-386713386713.jpg?w=1000&h=1000&fit=fill&fm=webp",
           title:
-            "vintage typewrite to post awesome stories about UI design and webdev",
+            "Quần jean nam.",
           price: "$49.50",
-          reviews: " Eligible for Shipping To Mars or somewhere else",
+          reviews: "Eligible for Shipping To Mars ",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://bizweb.dktcdn.net/thumb/1024x1024/100/399/392/products/hi03-t01-1.png",
           title:
-            "Lee Pucker design. Leather botinki for handsome designers. Free shipping.",
+            "Áo thun nam cổ tròn.",
           price: "$13.95",
           reviews: "1258 bids, 359 watchers $5.95 for shipping",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://st.app1h.com/uploads/images/company72/images/ao-thun-nam-chat-1.jpg",
           title:
-            "Timesaving kitten to save month on development.Playfull, cute, cheap!",
+            "Áo thun",
           price: "$128.99",
           reviews: " Eligible for nothing :(",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://cafefcdn.com/203337114487263232/2021/9/3/newfile-5-16306745994161147811338.jpeg",
           title:
-            "Plastic useless plugs and tubes for high-fidelity prototyping. Fit & Eat!",
+            "Áo đá bóng club MU",
           price: "$12.48",
-          reviews: "Wordwide shitting available Buyers protection possible! ",
+          reviews: "Wordwide shitting available Buyers ",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://aristino.com/Data/ResizeImage/images/product/so-mi-ngan-tay/ass005s2/NTC_4497x500x500x4.webp",
           title:
-            "Creativity stimulating lotion. Drink every morning to generate better ideas!",
-          price: "$12.48",
-          reviews: " Wordwide shifting available Buyers protection possible!",
+            "Áo ngắn tay nam.",
+          price: "$128.99",
+          reviews: " Eligible for nothing :(",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
-          title: "Tai nghe có dây",
+            "https://product.hstatic.net/200000736253/product/upload_d25e69d23539495e822a30723109994a_master.jpg",
+          title: "Quần jean nam.",
           price: "$128.99",
           reviews: " Showcasing onHovered state",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
-          title: "John Von Ebalkin SPRING ",
+            "https://bizweb.dktcdn.net/thumb/1024x1024/100/369/522/products/quan-jean-nu-rach-dep-dkmv-ripped-jeans-streetwear.jpg?v=1616860987837",
+          title: "Quần jean nữ. ",
           price: "$13.95",
           reviews: " 1258 bids, 359 watchers $5.95 for shipping",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://bizweb.dktcdn.net/thumb/large/100/438/408/products/vpn5004-xlo-5-e018eda9-5099-45e4-8ce9-c29bcf501391.jpg?v=1688723408473",
           title:
-            "Envelope, Stripes, Pencil and etc. Purchase this kit today and feel OKAY",
-          price: "$9.50",
-          reviews: "Eligible for Shipping To Mars or somewhere else",
+            "Váy nữ xinh xắn.",
+          price: "$23.25",
+          reviews: " 1258 bids, 359 watchers $5.95 for shipping",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://pubcdn.ivymoda.com/files/product/thumab/400/2024/01/18/8fe4938bfd0f9b4f7c545e62a2589d35.jpg",
           title:
-            "Professional teadrinking set for every designer and developer",
-          price: "$128.99",
-          reviews: " Eligible for nothing :(",
+            "Áo thun nữ",
+          price: "$12.48",
+          reviews: " Wordwide shifting available Buyers protection possible!",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
-          title: "One string Bonsai description",
+            "https://golfmax.vn/wp-content/uploads/2022/10/Full-set-thoi-trang-Golf-nu-GM21345-1-1.jpg",
+          title: "Set nữ thời trang",
           price: "$11.68",
           reviews: " Wordwide shifting available Buyers protection possible!",
         },
         {
           class: "pa-0",
           image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+            "https://cdn0918.cdn4s1.com/thumbs/jj0103/thiet-ke-chua-co-ten-5_thumb_350.png",
           title:
-            "Simply best item in town to shine bright with your Nine Inch Nails",
+            "Quần baggy jean.",
           price: "$1.25",
           reviews: " Eligible for Shipping To Mars or somewhere else",
         },
         {
           class: "pa-0",
-          image:
-            "https://assets.architecturaldigest.in/photos/638dc400d8be961106a0cdc1/16:9/w_2560%2Cc_limit/GettyImages-1443064180.jpg",
+         image:
+            "https://bizweb.dktcdn.net/100/425/004/products/300073172-118569220946036-1729531527568741581-n-1661343400964.jpg?v=1661408591763",
           title:
-            "KISTOCHKI & KRASIBO. Top cosmetics brand from Chelyabinsk is here!",
-          price: "$23.25",
-          reviews: " 1258 bids, 359 watchers $5.95 for shipping",
+            "Áo dài tay nam.",
+          price: "$9.50",
+          reviews: "Eligible for Shipping To Mars or somewhere else",
         },
       ],
     };

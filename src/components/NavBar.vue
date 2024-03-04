@@ -67,17 +67,6 @@
       </v-row>
     </v-col>
   </v-row>
-  <!-- </v-tabs>
-  </v-card>
-  </v-row> -->
-  <!-- <v-btn class="text-none" stacked>
-      <v-badge :content="0" color="erro">
-        <v-icon> mdi mdi-cart-check</v-icon>
-      </v-badge>
-    </v-btn> -->
-  <!-- <v-col cols="3">
-        <v-text-field density="compact" variant="outlined" label="Search" append-inner-icon="fas fa-search" single-line hide-details class="mr-2"></v-text-field>
-    </v-col> -->
 </template>
 
 <script>

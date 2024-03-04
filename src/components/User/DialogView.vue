@@ -90,10 +90,12 @@ watch(() => props.idEdit, (newValue, oldValue) => {
 const getUserById = async (id) => {
     try {
         const data = await userServiceApi._getDetail(id);
+        console.log(data);
+        
         if (data.success) {
             name.value = data.data.name;
             email.value = data.data.email;
-            password.value = data.data.password;
+            // password.value = data.data.password;
             birthday.value = data.data.birthday;
             phonenumber.value = data.data.phonenumber;
             role.value = data.data.role;

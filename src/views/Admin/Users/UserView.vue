@@ -77,9 +77,9 @@
               </v-col>
               <v-col cols="4" class="text-right">
                 <v-pagination v-model="page"
-                  variant="text"
+                  variant="text "
                   density="compact"
-                  :length="10"
+                  :length="5"
                 ></v-pagination>
               </v-col>
             </v-row>
@@ -87,7 +87,7 @@
         </v-col>
       </v-row>
     </v-container>
-     <DialogVue v-model="dialog" :idEdit="idEdit" />
+     <DialogVue v-model="dialog" @close="close()" :idEdit="idEdit" />
       <DeleteVue v-model="dialogDelete" :idDelete="idDelete" @delete="DeleteUserById" />
   </div>
 </template>
@@ -145,7 +145,11 @@ watch(page,(newvalue)=>{
   query.page= newvalue
   getData()
 })
-
+const close=()=>
+{
+  dialog.value=false
+  dialogDelete.value= false
+}
 </script>
 
 <style>
