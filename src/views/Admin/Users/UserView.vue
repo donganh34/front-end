@@ -30,12 +30,12 @@
             <v-table density="compact">
               <thead>
                 <tr>
-                  <th class="text-left">AVATAR</th>
-                  <th class="text-left">TÊN NGƯỜI DÙNG</th>
-                    <th class="text-left">EMAIL</th>
-                  <th class="text-left">NGÀY SINH </th>
-                  <th class="text-left">SỐ ĐIỆN THOẠI</th>
-                  <th class="text-center">HÀNH ĐỘNG</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">AVATAR</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">TÊN NGƯỜI DÙNG</th>
+                    <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">EMAIL</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">NGÀY SINH </th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">SỐ ĐIỆN THOẠI</th>
+                  <th class="text-center" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">HÀNH ĐỘNG</th>
                 </tr>
               </thead>
               <tbody>
@@ -52,11 +52,16 @@
                   <td >{{i.birthday}}</td>
                   <td layout="width:96px; height:22px">{{i.phonenumber}}</td>                 
                   <td class="text-center">
-                    <v-btn variant="text" @click="idEdit=i.id;dialog=true"
-                      ><v-icon layout="width:24px;height:24px">mdi mdi-pencil</v-icon></v-btn
-                    >
-                     <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true"><v-icon style="width:24px;height:24px">
-                      mdi mdi-trash-can-outline</v-icon></v-btn>
+                    <v-btn variant="text" @click="idEdit=i.id;dialog=true"> 
+                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
+                      width="24px" height="24px"></v-img>
+                      </v-btn>
+                      <!-- <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
+                      width="24px" height="24px"></v-img> -->
+                     <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true">
+                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200260/trash_wsowgu.png"
+                      width="24px" height="24px"></v-img>
+                      </v-btn>
                   </td>
                 </tr>
               </tbody>
@@ -66,9 +71,9 @@
                 <v-row>
                   <p class="mt-5 opacity">Showing</p>
                   <v-col cols="2">
-                    <v-select
+                    <v-select v-model="Showing"
                       density="compact"
-                      :items="['10', '20', '25', '30', 'All']"
+                      :items="['10', '20', '25', '30',  ]"
                       variant="outlined"
                     ></v-select>
                   </v-col>
@@ -103,6 +108,7 @@ const idDelete = ref(null)
 const idEdit=ref(null)
 const search= ref(null)
 const page = ref(1)
+const Showing=ref(10)
 
 import {useUser} from './user'
 import { userServiceApi} from"@/service/user.api";
@@ -143,6 +149,10 @@ const searchData=async()=>{
 }
 watch(page,(newvalue)=>{
   query.page= newvalue
+  getData()
+})
+watch(Showing,(newvalue)=>{
+  query.limit= newvalue
   getData()
 })
 const close=()=>

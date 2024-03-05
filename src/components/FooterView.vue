@@ -1,51 +1,30 @@
 <template>
-  <v-footer class="bg-indigo-lighten-1 text-center d-flex flex-column">
-    <v-row>
-        <v-card>
-          <v-row >
-            <v-col cols="4">
-              <v-card class="mx-auto" max-width="344">
-                <v-card-title align="center">
-                  Clear & Usable user flows
-                  <v-icon>mdi mdi-lightbulb-on-20 </v-icon>
-                </v-card-title>
-                <v-card-text align="center"
-                  >Let’s boost yout marketplace</v-card-text
-                >
-              </v-card>
-            </v-col>
-            <v-col cols="4">
-              <v-card class="mx-auto" max-width="344">
-                <v-card-title align="center">
-                  Fine & styled components
-                  <v-icon>mdi mdi-lightbulb-on-20 </v-icon>
-                </v-card-title>
-                <v-card-text align="center"
-                  >Speed up with Setproduct templates</v-card-text
-                >
-              </v-card>
-            </v-col>
-            <v-col cols="4">
-              <v-card class="mx-auto" max-width="344">
-                <v-card-title align="center">
-                  Customizable & Reusable
-                  <v-icon>mdi mdi-lightbulb-on-20 </v-icon>
-                </v-card-title>
-                <v-card-text align="center"
-                  >Let’s boost yout marketplace</v-card-text
-                >
-              </v-card>
-            </v-col>
-          </v-row>
-        </v-card>
-    </v-row>
-  </v-footer>
+ <div class="d-flex justify-space-between " style="margin-top: 40px;margin-bottom: 10px;">
+    <v-card  class="pa-5 d-flex flex-column justify-center align-center rounded-1"
+      style="min-height: 156px; background-color: #EDEDF0; width: 32%;">
+      <img width="80" height="80" :src="footer1">
+      <v-card-title class="text-center" style="font-family: Quicksand,sans-serif;font-weight: 700;font-size: 20px;">Clear & Usable user flows</v-card-title>
+      <v-card-subtitle class="text-center" style="font-family: 'Inter', sans-serif;font-size: 14px;">Let’s boost your marketplace</v-card-subtitle>
+    </v-card>
+    <v-card class="pa-5 d-flex flex-column justify-center align-center rounded-1"
+      style="min-height: 156px; background-color: #EDEDF0; width: 32%;">
+      <img width="80" height="80" :src="footer2">
+      <v-card-title class="text-center" style="font-family: Quicksand,sans-serif;font-weight: 700;font-size: 20px;">Fine & Styled components</v-card-title>
+      <v-card-subtitle class="text-center" style="font-family: 'Inter', sans-serif;font-size: 14px;">Speed up with Setproduct templates</v-card-subtitle>
+    </v-card>
+    <v-card class="pa-5 d-flex flex-column justify-center align-center rounded-1"
+      style="min-height: 156px; background-color: #EDEDF0; width: 32%;">
+      <img width="80" height="80" :src="footer3">
+      <v-card-title class="text-center" style="font-family: Quicksand,sans-serif;font-weight: 700;font-size: 20px;">Customizable & Reusable</v-card-title>
+      <v-card-subtitle class="text-center" style="font-family: 'Inter', sans-serif;font-size: 14px;">Take our UX patterns and rebuild</v-card-subtitle>
+    </v-card>
+  </div>
 </template>
 
-<script>
-export default {
-
-}
+<script setup>
+  import footer1 from "@/assets/icon/footer1.png"
+  import footer2 from "@/assets/icon/footer2.png"
+  import footer3 from "@/assets/icon/footer3.png"
 </script>
 
 <style>

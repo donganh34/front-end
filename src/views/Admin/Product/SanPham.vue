@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="3" sm="4" md="4" lg="3">
           <v-text-field
-            style="background-color: white"
+            style="width: 262px; height: 21px; font-family:Public Sans,sans-serif; font-size:13px;"
             density="compact"
             variant="outlined"
             v-model="key"
@@ -41,21 +41,23 @@
               </thead>
               <tbody>
                 <tr v-for="i in search" :key="i">
-                  <td style="font-weight: 600;font-family:Public Sans;sans-serif;font-size:15px;">{{ i.name }}</td>
-                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">${{i.price }}</td>
-                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">{{i.quantity}}</td>
-                  <td style="font-weight: 400;font-family:Public Sans;sans-serif;font-size:15px;">{{i.description}}</td>
+                  <td style="font-weight: 600;font-family:Public Sans,sans-serif;font-size:15px;">{{ i.name }}</td>
+                  <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;">${{i.price }}</td>
+                  <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;">{{i.quantity}}</td>
+                  <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;">{{i.description}}</td>
                   <td>
                     <v-img style=" width=36px; height=36px;radius=2px"
                       :src="i.imageUrl"
                     ></v-img>
                   </td>
                   <td class="text-center">
-                    <v-btn variant="text" @click="idEdit=i.id;dialog=true"
-                      ><v-icon style="width:6px;height:4px;top:3px;left:9px;border:1.75px">mdi mdi-square-edit-outline</v-icon></v-btn
-                    >
-                    <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true"><v-icon style="width:6px;height:4px;top:3px;left:9px;border:1.75px">
-                      mdi mdi-trash-can-outline</v-icon></v-btn>
+                    <v-btn variant="text" @click="idEdit=i.id;dialog=true">
+                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
+                      width="24px" height="24px"></v-img></v-btn>
+                    <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true">
+                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200260/trash_wsowgu.png"
+                      width="24px" height="24px"></v-img>
+                      </v-btn>
                   </td>
                 </tr>
               </tbody>
@@ -65,9 +67,9 @@
                 <v-row>
                   <p class="mt-5 opacity">Showing</p>
                   <v-col cols="2">
-                    <v-select
+                    <v-select v-model="Showing"
                       density="compact"
-                      :items="['5', '10', '15', '20', 'All']"
+                      :items="['10', '20', '25', '30',]"
                       variant="outlined"
                     ></v-select>
                   </v-col>
@@ -101,6 +103,7 @@ const dialogDelete = ref(false)
 const idDelete = ref(null) 
 const idEdit=ref(null)
 const page = ref(1)
+const Showing=ref(10)
 import {useProduct} from '../Product/Product'
 import { productServiceApi} from"@/service/product.api";
 import { showSuccessNotification} from"@/common/helper/helpers";
@@ -140,6 +143,10 @@ const DeleteProductById=async(id)=>{
 }
 watch(page,(newvalue)=>{
   query.page= newvalue
+  getData()
+})
+watch(Showing,(newvalue)=>{
+  query.limit= newvalue
   getData()
 })
 const close=()=>
