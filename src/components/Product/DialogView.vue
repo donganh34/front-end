@@ -4,7 +4,7 @@
             <v-card>
                 <v-card-title
                     style="font-weight: bold;position:fixed;width: 100%;top: 0;background-color: white;z-index: 100;">
-                    <h4>{{ idEdit ? "Sửa sản phẩm" : "Thêm mới sản phẩm" }}</h4>
+                    <h4>{{ idEdit ? "Sửa sản phẩm" : "Tạo mới sản phẩm" }}</h4>
                 </v-card-title>
                 <v-container class="mt-10" style="background-color: rgb(247, 247, 247);">
                     <v-row>
@@ -50,7 +50,7 @@
                     <v-spacer></v-spacer>
                     <v-btn @click="close()" class="text-capitalize" text="Hủy"></v-btn>
                     <v-btn type="submit" color="#0F60FF" class="text-capitalize" variant="elevated">{{
-                        idEdit ? "Update" : "Thêm" }}<span class="text-lowercase">{{ idEdit ? "" : "mới" }}</span></v-btn>
+                        idEdit ? "Update" : "Tạo" }}<span class="text-lowercase">{{ idEdit ? "" : "mới" }}</span></v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>

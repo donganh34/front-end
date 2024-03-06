@@ -4,7 +4,7 @@
             <v-card>
                 <v-card-title
                     style="font-weight: bold;position:fixed;width: 100%;top: 0;background-color: white;z-index: 100;">
-                    <h4>{{ id ? "Sửa user" : "Thêm user" }}</h4>
+                    <h4>{{ id ? "Sửa user" : "Tạo mới người dùng" }}</h4>
                 </v-card-title>
                 <v-container class="mt-10" style="background-color: rgb(247, 247, 247);">
                     <v-row>
@@ -58,7 +58,7 @@
                     <v-spacer></v-spacer>
                     <v-btn class="text-capitalize" @click="close()" text="Hủy"></v-btn>
                     <v-btn type="submit" color="#0F60FF" class="text-capitalize" variant="elevated">{{
-                        idEdit ? "Update" : "Thêm" }}<span class="text-lowercase">{{ idEdit ? "" : "mới" }}</span></v-btn>
+                        idEdit ? "Update" : "Tạo" }}<span class="text-lowercase">{{ idEdit ? "" : "mới" }}</span></v-btn>
                 </v-card-actions>
             </v-card>
         </v-form>

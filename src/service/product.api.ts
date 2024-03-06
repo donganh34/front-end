@@ -8,23 +8,13 @@ import { ApiService } from "@/plugins/axios/api";
 
 class ProductApiService extends ApiService {
   async createProduct(formData: FormData): Promise<IBodyResponse<any>> {
-    return await this.client.post(`${this.baseUrl}`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        'Authorization': 'Bearer '+localStorageAuthService.getAccessToken()
-      },
-    });
+    return await this.client.post(`${this.baseUrl}`, formData);
   }
   async updateProduct(
     id: string,
     formData: FormData
   ): Promise<IBodyResponse<any>> {
-    return await this.client.patch(`${this.baseUrl}/${id}`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-        'Authorization': 'Bearer '+localStorageAuthService.getAccessToken()
-      },
-    });
+    return await this.client.patch(`${this.baseUrl}/${id}`, formData);
   }
 }
 export const productServiceApi = new ProductApiService(

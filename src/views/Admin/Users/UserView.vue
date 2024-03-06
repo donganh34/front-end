@@ -15,12 +15,12 @@
           ></v-text-field>
         </v-col>
         <v-col cols="9" class="text-right">
-          <v-btn
+          <v-btn style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:14px;line height:16px;align:Center"
             @click="dialog = true"
-            color="primary"
+            color="#0F60FF"
             prepend-icon="mdi mdi-plus"
             class="text-uppercase"
-            >Thêm</v-btn
+            >tạo mới</v-btn
           >
         </v-col>
       </v-row>
@@ -32,7 +32,7 @@
                 <tr>
                   <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">AVATAR</th>
                   <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">TÊN NGƯỜI DÙNG</th>
-                    <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">EMAIL</th>
+                  <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">EMAIL</th>
                   <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">NGÀY SINH </th>
                   <th class="text-left" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">SỐ ĐIỆN THOẠI</th>
                   <th class="text-center" style="opacity:0.5;font-family:Public Sans,sans-serif; font-size:13px;" layout="width:41px;height:15px">HÀNH ĐỘNG</th>
@@ -47,19 +47,19 @@
                       :src="i.imageUrl"
                     ></v-img>
                   </td>
-                  <td style="font-weight: 600">{{ i.name }}</td>
-                    <td style="width:323px; height:58px;padding:18px, 20px, 18px, 20px;gap:8px">{{i.email}}</td>
-                  <td >{{i.birthday}}</td>
-                  <td layout="width:96px; height:22px">{{i.phonenumber}}</td>                 
+                  <td style="font-weight: 600;font-family:Public Sans,sans-serif;font-size:15px;line height:22px;">{{ i.name }}</td>
+                  <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;line height:22px;">{{i.email}}</td>
+                  <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;line height:22px;" >{{i.birthday}}</td>
+                  <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;line height:22px;">{{i.phonenumber}}</td>                 
                   <td class="text-center">
                     <v-btn variant="text" @click="idEdit=i.id;dialog=true"> 
-                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
+                      <v-img layout="width: 24px; height: 24px;" src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
                       width="24px" height="24px"></v-img>
                       </v-btn>
                       <!-- <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
                       width="24px" height="24px"></v-img> -->
                      <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true">
-                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200260/trash_wsowgu.png"
+                      <v-img layout="width: 24px; height: 24px;" src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200260/trash_wsowgu.png"
                       width="24px" height="24px"></v-img>
                       </v-btn>
                   </td>
@@ -81,7 +81,7 @@
                 </v-row>
               </v-col>
               <v-col cols="4" class="text-right">
-                <v-pagination v-model="page"
+                <v-pagination v-model="page" active-color="#0F60FF"
                   variant="text "
                   density="compact"
                   :length="5"
@@ -118,7 +118,7 @@ const {users, query, getAll} = useUser()
   onMounted(async =>{
     query.keyword=""
     query.page=1
-    query.limit=5
+    query.limit=10
     getData()
   })
 

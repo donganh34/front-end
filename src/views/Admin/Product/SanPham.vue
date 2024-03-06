@@ -16,12 +16,12 @@
           ></v-text-field>
         </v-col>
         <v-col cols="7" class="text-right" lg="9" sm="8" md="8">
-          <v-btn
+          <v-btn style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:14px;line height:16px;align:Center"
             @click="dialog = true"
-            color="primary"
+            color="#0F60FF"
             prepend-icon="mdi mdi-plus"
             class="text-uppercase"
-            >Thêm</v-btn
+            >Tạo mới</v-btn
           >
         </v-col>
       </v-row>
@@ -46,16 +46,16 @@
                   <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;">{{i.quantity}}</td>
                   <td style="font-weight: 400;font-family:Public Sans,sans-serif;font-size:15px;">{{i.description}}</td>
                   <td>
-                    <v-img style=" width=36px; height=36px;radius=2px"
+                    <v-img layout=" width=36px; height=36px;radius=2px;"
                       :src="i.imageUrl"
                     ></v-img>
                   </td>
                   <td class="text-center">
                     <v-btn variant="text" @click="idEdit=i.id;dialog=true">
-                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
+                      <v-img layout="width: 24px; height: 24px;" src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200255/edit_sh0ub9.png"
                       width="24px" height="24px"></v-img></v-btn>
                     <v-btn variant="text" @click="idDelete=i.id;dialogDelete=true">
-                      <v-img src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200260/trash_wsowgu.png"
+                      <v-img layout="width: 24px; height: 24px;" src="https://res.cloudinary.com/dyo42vgdj/image/upload/v1709200260/trash_wsowgu.png"
                       width="24px" height="24px"></v-img>
                       </v-btn>
                   </td>
@@ -78,10 +78,9 @@
               </v-col>
               <v-col cols="4" class="text-right">
                 <v-pagination v-model="page" active-color="#0F60FF"
-                  variant="text"
-                  
+                  variant="text"  
                   density="compact"
-                  :length="10"
+                  :length="5"
                 ></v-pagination>
               </v-col>
             </v-row>
@@ -111,7 +110,7 @@ const {products, query, getAll} = useProduct()
   onMounted(async =>{
      query.keyword=""
     query.page=1
-    query.limit=5
+    query.limit=10
     getData()
   })
 

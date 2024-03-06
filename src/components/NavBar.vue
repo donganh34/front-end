@@ -12,18 +12,18 @@
         <v-select
           class="mr-4"
           label="Useless first"
-          :items="['California', 'Colorado']"
+          :items="['All', 'Quần', 'Áo']"
           variant="outlined"
         ></v-select>
         <v-select
           label="Condition"
-          :items="['California', 'Colorado']"
+          :items="['Giá cao->Giá thấp', 'Giá thấp->Giá Cao']"
           variant="outlined"
         ></v-select>
         <v-select
           class="ml-4"
           label="Delivery options"
-          :items="['California', 'Colorado']"
+          :items="['California', 'Colorado','Flolida','Texas']"
           variant="outlined"
         ></v-select>
       </v-row>
