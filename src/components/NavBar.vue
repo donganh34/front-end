@@ -3,17 +3,17 @@
       <v-col cols="4" sm="6" md="6" lg="2">
         <!-- <v-select v-model="SortCategory" density="compact" label="SORT BY" :items="['Quần', 'Áo', 'All']"
               variant="outlined"></v-select> -->
-              <v-select density="compact" label="SORT BY" :items="['Áo', 'Quần', 'All']"
+              <v-select v-model="sort" density="compact" label="SORT BY" :items="['Áo', 'Quần', 'All']"
           variant="outlined"></v-select>
           </v-col>
       <v-col cols="4" sm="6" md="6" lg="2">
         <!-- <v-select v-model="selectedSort" label="Giá" density="compact" :items="['Từ cao -> thấp','Từ thấp -> cao']"
           variant="outlined"></v-select> -->
-           <v-select density="compact" :items="['Từ cao -> thấp','Từ thấp -> cao']"
-          variant="outlined"></v-select>
+           <v-select v-model="Condition" density="compact"  :items="['Từ cao -> thấp','Từ thấp -> cao']"
+          variant="outlined"></v-select>        
       </v-col>
       <v-col cols="4" sm="6" md="6" lg="2">
-        <v-select density="compact" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming','Ha Noi']"
+        <v-select v-model="Delivery" density="compact"  :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming','Ha Noi']"
           variant="outlined"></v-select>
       </v-col>
       <v-col cols="12" sm="6" md="6" lg="6" class="text-right">
@@ -37,9 +37,12 @@
     </v-row>
   </template>
   
-  <script >
-  export default {};
-  
+  <script setup>
+import { ref } from "vue";
+
+  const sort=ref("Useless first")
+  const Condition=ref("Condition")
+  const Delivery =ref("Delivery options")
   </script>
   
   <style>
