@@ -1,11 +1,15 @@
 <template>
     <v-row class="ml-3 mt-3">
       <v-col cols="4" sm="6" md="6" lg="2">
-        <v-select v-model="SortCategory" density="compact" label="SORT BY" :items="['Quần', 'Áo', 'All']"
-              variant="outlined"></v-select>
+        <!-- <v-select v-model="SortCategory" density="compact" label="SORT BY" :items="['Quần', 'Áo', 'All']"
+              variant="outlined"></v-select> -->
+              <v-select density="compact" label="SORT BY" :items="['Áo', 'Quần', 'All']"
+          variant="outlined"></v-select>
           </v-col>
       <v-col cols="4" sm="6" md="6" lg="2">
-        <v-select v-model="selectedSort" label="Giá" density="compact" :items="['Từ cao -> thấp','Từ thấp -> cao']"
+        <!-- <v-select v-model="selectedSort" label="Giá" density="compact" :items="['Từ cao -> thấp','Từ thấp -> cao']"
+          variant="outlined"></v-select> -->
+           <v-select density="compact" :items="['Từ cao -> thấp','Từ thấp -> cao']"
           variant="outlined"></v-select>
       </v-col>
       <v-col cols="4" sm="6" md="6" lg="2">
