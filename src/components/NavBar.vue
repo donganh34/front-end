@@ -1,77 +1,42 @@
 <template>
-  <!-- <v-toolbar-title>SHOP</v-toolbar-title>
-    <v-row>
-    <v-card>
-    <v-tabs
-      v-model="tab"
-      bg-color="primary"
-    > -->
-  <v-row>
-    <v-col cols="5">
-      <v-row>
-        <v-select
-          class="mr-4"
-          label="Useless first"
-          :items="['All', 'Quần', 'Áo']"
-          variant="outlined"
-        ></v-select>
-        <v-select
-          label="Condition"
-          :items="['Giá cao->Giá thấp', 'Giá thấp->Giá Cao']"
-          variant="outlined"
-        ></v-select>
-        <v-select
-          class="ml-4"
-          label="Delivery options"
-          :items="['California', 'Colorado','Flolida','Texas']"
-          variant="outlined"
-        ></v-select>
-      </v-row>
-    </v-col>
-    <v-spacer></v-spacer>
-    <v-col cols="6">
-      <v-row>
-        <v-btn
-          class="text-capitalize mt-2"
-          variant="text"
-          size="large"
-          style="background-color: #ebf2ff"
-          >Show all</v-btn
-        >
-        <v-btn
-          class="text-capitalize mt-2"
-          elevation="2"
-          size="large"
-          style="color: #2264d1"
-          >Auction</v-btn
-        >
-        <v-btn
-          class="text-capitalize mt-2"
-          variant="text"
-          size="large"
-          style="background-color: #ebf2ff"
-          >But now</v-btn
-        >
-        <v-spacer></v-spacer>
-        <v-btn
-          class="mt-2"
-          variant="text"
-          size="large"
-          style="background-color: #ebf2ff"
-        >
+    <v-row class="ml-3 mt-3">
+      <v-col cols="4" sm="6" md="6" lg="2">
+        <v-select v-model="SortCategory" density="compact" label="SORT BY" :items="['Quần', 'Áo', 'All']"
+              variant="outlined"></v-select>
+          </v-col>
+      <v-col cols="4" sm="6" md="6" lg="2">
+        <v-select v-model="selectedSort" label="Giá" density="compact" :items="['Từ cao -> thấp','Từ thấp -> cao']"
+          variant="outlined"></v-select>
+      </v-col>
+      <v-col cols="4" sm="6" md="6" lg="2">
+        <v-select density="compact" :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming','Ha Noi']"
+          variant="outlined"></v-select>
+      </v-col>
+      <v-col cols="12" sm="6" md="6" lg="6" class="text-right">
+        <v-btn  style="background-color: rgb(212, 227, 255);color:#0f0f13" class="rounded-1 text-capitalize" variant="tonal">
+          Show all
+        </v-btn>
+        <v-btn style="font-weight: 400;color: rgb(34, 100, 209);" bg-color="white" class="rounded-1 text-capitalize"
+        variant="elevated" elevation="3">
+          Action
+        </v-btn>
+        <v-btn style="background-color:rgb(212, 227, 255);color:#0f0f13" class="rounded-1 text-capitalize" variant="tonal">
+          Buy now
+        </v-btn>
+        <v-btn  style="background-color: rgb(212, 227, 255)" class="ml-5" ariant="tonal" elevation="0">
           <v-icon>mdi mdi-menu</v-icon>
         </v-btn>
-        <v-btn class="mt-2" size="large">
-          <v-icon>mdi mdi-microsoft</v-icon>
+        <v-btn class="mr-5"  variant="elevated">
+          <v-icon style="color: #0c5bda;">mdi mdi-microsoft</v-icon>
         </v-btn>
-      </v-row>
-    </v-col>
-  </v-row>
-</template>
-
-<script>
-export default {};
-</script>
-
-<style>
-</style>
+      </v-col>
+    </v-row>
+  </template>
+  
+  <script >
+  export default {};
+  
+  </script>
+  
+  <style>
+  </style>
